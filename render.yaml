@@ -1,9 +1,10 @@
 services:
   - type: web
-    name: nicole-portfolio-backend
-    env: docker
+    name: nicole-portfolio
+    env: java
     plan: free
-    dockerCommand: |
-      apt-get update && apt-get install -y maven &&
-      mvn clean package -DskipTests &&
-      java -jar target/nicole-portfolio-0.0.1-SNAPSHOT.jar
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/nicole-portfolio-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: PORT
+        value: 10000
