@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/projects")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "https://nicole-portfolio-backend.onrender.com"})
 public class ProjectsController {
 
     @Autowired
