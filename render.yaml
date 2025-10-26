@@ -1,10 +1,9 @@
 services:
   - type: web
     name: nicole-portfolio-backend
-    env: java
-    buildCommand: "./mvnw clean package -DskipTests"
-    startCommand: "java -jar target/nicole-portfolio-0.0.1-SNAPSHOT.jar"
+    env: docker
     plan: free
-    envVars:
-      - key: JAVA_VERSION
-        value: 17
+    dockerCommand: |
+      apt-get update && apt-get install -y maven &&
+      mvn clean package -DskipTests &&
+      java -jar target/nicole-portfolio-0.0.1-SNAPSHOT.jar
