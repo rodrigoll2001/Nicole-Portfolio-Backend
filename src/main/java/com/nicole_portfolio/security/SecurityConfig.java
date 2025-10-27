@@ -24,8 +24,9 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/**").permitAll()
-                        .requestMatchers("/projects", "/projects/**").permitAll()// libera login/registro
+                        .requestMatchers("/**").permitAll()
+                        //.requestMatchers("/auth/**").permitAll()
+                        //.requestMatchers("/projects", "/projects/**").permitAll()// libera login/registro
                         .anyRequest().authenticated()
                 )
                 // 👇 adiciona o filtro ANTES do filtro padrão de autenticação
